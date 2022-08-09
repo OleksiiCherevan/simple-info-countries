@@ -1,22 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;600;800&display=swap');
+
 * {
   box-sizing: border-box;
 }
 
 :root {
 
+  /* typography */
+  --ft-family:  'Nunito Sans', sans-serif;
+
+  --fs-sm: 14px;
+  --fs-md: 16px;
   
+  --fw-sm: 300;
+  --fw-md: 600;
+  --fw-bg: 800;
+
+  /* others */
+  --radius: 16px;
+  
+  --shadow: rgba(149, 157, 165, 0.2) 0 8px 24px;
 }
 
 body[data-theme=dark] {
-  -colors-ft:  hsl(0, 0%, 100%);
-  -colors-bg: hsl(207, 26%, 17%);
-  -colors-el: hsl(209, 23%, 22%);
-  -colors-input: hsl(0, 0%, 52%)
+  --colors-ft:  hsl(0, 0%, 100%);
+  --colors-bg: hsl(207, 26%, 17%);
+  --colors-el: hsl(209, 23%, 22%);
+  --colors-input:  hsl(0, 0%, 100%);
 }
 
-body[data-theme=dark] {
-  -colors-ft:  hsl(200, 15%, 8%);
-  -colors-bg:  hsl(0, 0%, 98%);
-  -colors-el: hsl(0, 0%, 100%);
-  -colors-input: hsl(0, 0%, 52%)
+body[data-theme=light] {
+  --colors-ft:   hsl(200, 15%, 8%);
+  --colors-bg:  hsl(0, 0%, 98%);
+  --colors-el: hsl(0, 0%, 100%);
+  --colors-input: hsl(0, 0%, 52%);
+}
+
+body {
+  margin: 0;
+  font-family: var(--ft-family);
+  font-weight: var(--fw-sm);
+  font-size: var(--fs-sm);
+}
+
+a {
+  text-decoration: none;
+  color: var(--colors-ft);
 }
