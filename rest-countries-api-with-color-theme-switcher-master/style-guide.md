@@ -20,6 +20,7 @@ The designs were created to the following widths:
 
 ## Typography
 
+
 ### Body Copy
 
 - Homepage Items: 14px

@@ -2,6 +2,7 @@
 
 * {
   box-sizing: border-box;
+
 }
 
 :root {
@@ -19,21 +20,24 @@
   /* others */
   --radius: 16px;
   
-  --shadow: rgba(149, 157, 165, 0.2) 0 8px 24px;
 }
 
 body[data-theme=dark] {
   --colors-ft:  hsl(0, 0%, 100%);
   --colors-bg: hsl(207, 26%, 17%);
   --colors-el: hsl(209, 23%, 22%);
-  --colors-input:  hsl(0, 0%, 100%);
+  --colors-input:  hsl(0, 0%, 87%); 
+   --shadow: rgba(57, 58, 59, 0.2) 0 8px 24px;
+
 }
 
 body[data-theme=light] {
   --colors-ft:   hsl(200, 15%, 8%);
   --colors-bg:  hsl(0, 0%, 98%);
   --colors-el: hsl(0, 0%, 100%);
-  --colors-input: hsl(0, 0%, 52%);
+  --colors-input: hsl(0, 0%, 52%);  
+  --shadow: rgba(149, 157, 165, 0.2) 0 8px 24px;
+
 }
 
 body {
@@ -47,3 +51,4 @@ a {
   text-decoration: none;
   color: var(--colors-ft);
 }
+
