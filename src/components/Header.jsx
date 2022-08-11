@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { IoMoonOutline, IoMoonSharp } from 'react-icons/io5';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 import Container from './Container';
@@ -18,7 +19,7 @@ const Wrapper = styled.div`
   align-items: center;
 `;
 
-const Title = styled.a.attrs({ href: '/' })`
+const Title = styled.a`
   font-size: var(--fs-md);
   font-weight: var(--fw-bg);
 `;
@@ -47,7 +48,9 @@ function Header() {
     <HeaderEl>
       <Container>
         <Wrapper>
-          <Title>Were in the world?</Title>
+          <Link to="/">
+            <Title>Were in the world?</Title>
+          </Link>
 
           <ModeSwitcher onClick={onToggleTheme}>
             {theme !== 'light' ? <IoMoonSharp /> : <IoMoonOutline />}

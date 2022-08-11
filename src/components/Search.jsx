@@ -13,7 +13,7 @@ const SearchEl = styled.div`
   border-radius: 3px;
   background: var(--colors-el);
   box-shadow: var(--shadow);
-  margin-top: 30px;
+
   padding-left: 30px;
 `;
 

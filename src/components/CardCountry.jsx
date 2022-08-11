@@ -2,7 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 import propTypes from 'prop-types';
 
-const CardCountryEl = styled.div`
+
+export const CardCountryEl = styled.div`
   background-color: var(--colors-el);
   border-radius: 3px;
   overflow: hidden;
@@ -10,23 +11,40 @@ const CardCountryEl = styled.div`
   box-shadow: var(--shadow);
 `;
 
-const CardImage = styled.img`
-  width: 100%;
-  box-shadow: var(--shadow);
-`;
 
-const CardInfo = styled.div`
+
+export const CardInfo = styled.div`
   color: var(--colors-ft);
   padding: 0 20px 20px 30px;
 `;
 
-const CardHeader = styled.h2``;
+export const CardHeader = styled.h2``;
 
-const CardInfoKey = styled.span``;
+export const CardImage = styled.img`
+  width: 100%;
+  box-shadow: var(--shadow);
+`;
 
-const CardInfoValue = styled.span`
+ const CardInfoKey = styled.span`
+  margin-right: 10px;
+`;
+
+ const CardInfoValue = styled.span`
   color: var(--colors-input);
 `;
+
+export const CardInfoItem = ({left, right}) => {
+  return <div>
+    <CardInfoKey>{left}:</CardInfoKey>
+    <CardInfoValue>{right}</CardInfoValue>
+  </div>
+}
+
+CardInfoItem.propTypes = {
+  left: propTypes.string,
+  right: propTypes.any,
+  
+}
 
 function CardCountry(
   {
@@ -39,21 +57,12 @@ function CardCountry(
 ) {
   return (
     <CardCountryEl>
-      <CardImage src={flags.svg} />
+      <CardImage src={flags.svg}></CardImage>
       <CardInfo>
         <CardHeader>{name.common}</CardHeader>
-        <div>
-          <CardInfoKey>Population:</CardInfoKey>
-          <CardInfoValue>{population}</CardInfoValue>
-        </div>
-        <div>
-          <CardInfoKey>Region:</CardInfoKey>
-          <CardInfoValue>{region}</CardInfoValue>
-        </div>
-        <div>
-          <CardInfoKey>Capital:</CardInfoKey>
-          <CardInfoValue>{capital.join(', ')}</CardInfoValue>
-        </div>
+        <CardInfoItem left="Population" right={population.toLocaleString('en-US')}></CardInfoItem>
+        <CardInfoItem left="Region" right={region}></CardInfoItem>
+        <CardInfoItem left="Capital" right={capital.join(', ')}></CardInfoItem>
       </CardInfo>
     </CardCountryEl>
   );
@@ -64,7 +73,7 @@ CardCountry.propTypes = {
   population: propTypes.number.isRequired,
   region: propTypes.string.isRequired,
   name: propTypes.shape({ common: propTypes.string }).isRequired,
-  capital: propTypes.shape([propTypes.string]).isRequired,
+  capital: propTypes.array.isRequired,
 };
 
 export default CardCountry;

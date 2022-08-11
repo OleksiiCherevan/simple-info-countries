@@ -5,15 +5,16 @@ import styled from 'styled-components';
 import { fetchCountries } from '../store/countriesSlice';
 
 import Container from '../components/Container';
-import Header from '../components/Header';
 import Search from '../components/Search';
 import RegionFilter from '../components/Filter';
 import CardCountry from '../components/CardCountry';
 import Preloader from '../components/Preloader';
+import { Link } from 'react-router-dom';
 
 const HomeEl = styled.div`
   background-color: var(--colors-bg);
   min-height: 100vh;
+  padding: 30px 0 ;
 `;
 const SearchWrapper = styled.div`
   font-size: 1.2rem;
@@ -40,21 +41,21 @@ const Home = () => {
 
   return (
     <HomeEl>
-      <Header></Header>
-
       <Container>
         <SearchWrapper>
           <Search></Search>
         </SearchWrapper>
 
         <RegionFilter></RegionFilter>
-        
+
         {status === 'fulfilled' ? (
           <RegionsList>
-            {data.map((region) => (
-              <CardCountry key={region.name.common} {...region}>
-                {region.name.common}
-              </CardCountry>
+            {data.map((country) => (
+              <Link key={country.name.common} to={`/country/${country.name.common.toLowerCase()}`}>
+                <CardCountry {...country}>
+                  {country.name.common}
+                </CardCountry>
+              </Link>
             ))}
           </RegionsList>
         ) : (
