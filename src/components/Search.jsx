@@ -4,8 +4,8 @@ import { IoSearchSharp } from 'react-icons/io5';
 import { useDispatch } from 'react-redux/es/hooks/useDispatch';
 import { setName } from '../store/countriesSlice';
 
-const SearchEl = styled.div`
-  height: 50px;
+const SearchEl = styled.span`
+  height: 40px;
   display: flex;
   align-items: center;
   color: var(--colors-input);
@@ -19,9 +19,10 @@ const SearchEl = styled.div`
 
 const Input = styled.input.attrs({ type: 'input' })`
   flex: 1;
+  height: 100%;
   border: none;
   background: var(--colors-el);
-  margin: 0px 25px;
+  margin-left: 25px;
   color: var(--colors-input);
 
   &::placeholder {

@@ -1,3 +1,5 @@
+import axios from "axios";
+
 const name = {
   name: {
     common: 'Belgium',
@@ -217,6 +219,14 @@ export const getCurrencies = (country) => {
   return currencies.map((currency) => currency.name).join(', ');
 };
 
+export const getTld = (country) => {
+  if (!Object.keys(country).length) return;
+
+  const tld = country.tld;
+
+  return tld.map((domain) => domain).join(' ');
+};
+
 export const getLanguages = (country) => {
   if (!Object.keys(country).length) return;
 
@@ -226,3 +236,14 @@ export const getLanguages = (country) => {
     .map((key) => languages[key])
     .join(',');
 };
+
+export const getBorderCountries = async (country) => {
+  const { borders } = country;
+
+  if (!borders) {
+    return [];
+  }
+  
+  
+  return borderCountries
+}

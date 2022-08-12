@@ -6,10 +6,10 @@ import styled from 'styled-components';
 import Container from './Container';
 
 const HeaderEl = styled.header`
-  background-color: var(--colors-el);
   height: 50px;
   display: flex;
   align-items: center;
+  background-color: var(--colors-el);
   box-shadow: var(--shadow);
 `;
 
@@ -33,14 +33,30 @@ const ModeSwitcher = styled.div`
   text-transform: capitalize;
 `;
 
+const DEFAULT_THEME = 'light';
+
+const getSavedTheme = () => {
+  const savedTheme = localStorage.getItem('theme');
+  return !!savedTheme ? savedTheme : DEFAULT_THEME;
+};
+
+const setSavedTheme = (theme) => {
+  if (theme === 'light' || theme === 'dark') {
+    localStorage.setItem('theme', theme);
+  } else {
+    localStorage.setItem('theme', DEFAULT_THEME);
+  }
+};
+
 function Header() {
-  const [theme, setTheme] = useState('light');
+  const [theme, setTheme] = useState(getSavedTheme());
 
   const onToggleTheme = () => {
     setTheme(theme === 'light' ? 'dark' : 'light');
   };
 
   useEffect(() => {
+    setSavedTheme(theme);
     document.body.setAttribute('data-theme', theme);
   }, [theme]);
 

@@ -4,10 +4,13 @@ import propTypes from 'prop-types';
 
 
 export const CardCountryEl = styled.div`
+  height: 100%;
+  max-width: 320px;
+  margin: auto;
   background-color: var(--colors-el);
   border-radius: 3px;
   overflow: hidden;
-  padding-bottom: 20px;
+  /* padding-bottom: 20px; */
   box-shadow: var(--shadow);
 `;
 
@@ -15,17 +18,24 @@ export const CardCountryEl = styled.div`
 
 export const CardInfo = styled.div`
   color: var(--colors-ft);
-  padding: 0 20px 20px 30px;
+  padding-left: 20px;
+  padding-bottom :20px ;
 `;
 
-export const CardHeader = styled.h2``;
+export const CardHeader = styled.h2`
+font-weight: var(--fw-bg);
+`;
 
 export const CardImage = styled.img`
   width: 100%;
+  height: 50%;
+  object-fit: cover;
   box-shadow: var(--shadow);
 `;
 
  const CardInfoKey = styled.span`
+ 
+ font-weight: var(--fw-md);
   margin-right: 10px;
 `;
 

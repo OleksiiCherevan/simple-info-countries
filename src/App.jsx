@@ -6,19 +6,19 @@ import { useSelector } from 'react-redux';
 
 import { Routes, Route, Link } from 'react-router-dom';
 
-import Home from './pages/Home';
+import CountryList from './pages/Home';
 
 import Header from './components/Header';
 import Preloader from './components/Preloader';
-import Country from './pages/Country';
+import CountryDetail from './pages/CountryDetail';
 
 function App() {
   return (
     <div className="app">
       <Header></Header>
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/country/:countryName" element={<Country />} />
+        <Route path="/" element={<CountryList />} />
+        <Route path="/country/:code" element={<CountryDetail />} />
       </Routes>
     </div>
   );

@@ -16,7 +16,7 @@ const fetchCountries = createAsyncThunk(
     "countries/fetchCountries",
     async () => {
         const response = await axios(
-            "https://restcountries.com/v3.1/all?fields=name,capital,flags,population,region"
+            "https://restcountries.com/v3.1/all?fields=name,capital,flags,population,region,cioc"
         );
         
         return  {data: response.data};
