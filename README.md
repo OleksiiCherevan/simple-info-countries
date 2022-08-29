@@ -1,4 +1,4 @@
-# Getting Started with Create React App
+# You can see implementatino of this app <a href="https://oleksiicherevan.github.io/simple-info-countries/" target="_blank">here</a>
 
 ### To run this application you should use the following commands: 
 
